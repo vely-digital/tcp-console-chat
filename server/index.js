@@ -57,6 +57,8 @@ server.on("error", (err) => {
   throw err;
 });
 
-server.listen(8124, () => {
+const port = process.env.PORT || 6700;
+
+server.listen(port, () => {
   console.log("server started");
 });

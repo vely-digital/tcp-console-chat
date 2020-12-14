@@ -4,20 +4,14 @@ services:
     image: 127.0.0.1:8888/tcp-test:latest
     environment:
       - PORT=8124
-      - VIRTUAL_HOST=tcp.studio-vely.com
-      - VIRTUAL_PORT=8124
-      - HTTPS_METHOD=noredirect
+
       # - LETSENCRYPT_HOST=tcp.studio-vely.com
       # - LETSENCRYPT_EMAIL=fpatafta@live.com
-    networks:
-      - "nginx-proxy_default"
+
     expose:
       - "8124"
     ports:
       - '8124:8124'
 version: '3.8'
-networks:
-  nginx-proxy_default:
-    external: true
-    
+
     
