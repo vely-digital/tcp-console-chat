@@ -6,6 +6,7 @@ services:
       - PORT=8124
       - VIRTUAL_HOST=tcp.studio-vely.com
       - VIRTUAL_PORT=8124
+      - HTTPS_METHOD=noredirect
       # - LETSENCRYPT_HOST=tcp.studio-vely.com
       # - LETSENCRYPT_EMAIL=fpatafta@live.com
     networks:
