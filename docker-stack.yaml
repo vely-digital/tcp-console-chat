@@ -7,7 +7,7 @@ services:
       - VIRTUAL_HOST=tcp.studio-vely.com
       - VIRTUAL_PORT=8124
       - LETSENCRYPT_HOST=tcp.studio-vely.com
-      - LETSENCRYPT_EMAIL=tcp.fpatafta@live.com
+      - LETSENCRYPT_EMAIL=fpatafta@live.com
     networks:
       - "nginx-proxy_default"
     expose:
