@@ -103,9 +103,10 @@ async function main() {
         let protoc = new Protocol();
         let promiseSocket = new PromiseSocket(client);;
         const ipPort = await asyncQuestionProcess("Please enter ip:port ");
+        const splitedIpPort = ipPort.split(/:|\\n/g)
         const answer = await asyncQuestionProcess("Please enter your name: ");
         const spinner = ora('Loading server').start();
-        await promiseSocket.connect(8124, "localhost");
+        await promiseSocket.connect(splitedIpPort[1], splitedIpPort[0]);
         await promiseSocket.write(protoc.encode(messageType.USERNAME, answer));
         spinner.succeed();
 
