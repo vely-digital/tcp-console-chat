@@ -1,7 +1,7 @@
 ---
 services:
   node:
-    image: filipleiner/studio-vely:latest
+    image: 127.0.0.1:8888/tcp-test:latest
     environment:
       - PORT=8124
       - VIRTUAL_HOST=tcp.studio-vely.com
