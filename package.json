@@ -1,0 +1,17 @@
+{
+  "name": "tcp-console-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "neo-blessed": "^0.2.0",
+    "ora": "^5.1.0",
+    "prompt-async": "^0.9.9"
+  }
+}
