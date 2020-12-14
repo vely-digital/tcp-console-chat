@@ -57,6 +57,6 @@ server.on("error", (err) => {
   throw err;
 });
 
-server.listen(8124, "localhost", () => {
+server.listen(8124, () => {
   console.log("server started");
 });
