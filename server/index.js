@@ -24,9 +24,9 @@ const server = net.createServer((socket) => {
 
   socket.on("data", (data) => {
     let protocol = new Protocol();
-    console.log("recieved data", data);
+    // console.log("recieved data", data);
     protocol.decode(data);
-    console.log("recieved", protocol)
+    // console.log("recieved", protocol)
     if (!user.userName && protocol.type == messageType.USERNAME) {
       user.setUsername(protocol.message);
 
@@ -50,14 +50,17 @@ const server = net.createServer((socket) => {
 
     console.log("client disconnected");
   });
+
+  socket.on('error', function (error) {
+    console.log('Socket got problems: ', error.message);
+  });
 });
 
 server.on("error", (err) => {
   console.log("error", err)
-  throw err;
 });
 
-const port = process.env.PORT || 6700;
+const port = process.env.PORT || 8124;
 
 server.listen(port, () => {
   console.log("server started");

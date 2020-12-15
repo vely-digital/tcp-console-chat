@@ -1,6 +1,5 @@
 const net = require('net');
 const client = new net.Socket();
-const util = require("util");
 const readline = require("readline");
 const { PromiseSocket } = require("promise-socket")
 
@@ -24,7 +23,7 @@ function makeMessageList() {
         mouse: true,
         keys: true,
         width: '100%',
-        height: '97%',
+        height: '95%',
         top: 0,
         left: 0,
         scrollbar: {
@@ -38,7 +37,7 @@ function makeMessageList() {
 function makeTextArea() {
     return blessed.textarea({
         bottom: 0,
-        height: '3%',
+        height: '5%',
         inputOnFocus: true,
         padding: {
             top: 1,
