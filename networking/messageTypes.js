@@ -1,3 +1,4 @@
+'use strict';
 // PROTOCOL
 // 0 -> messageType
 // 1 -> lenght of message

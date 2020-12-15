@@ -1,3 +1,4 @@
+'use strict';
 const net = require("net");
 const Protocol = require("../networking/protocol");
 const User = require("../networking/user");
@@ -9,7 +10,7 @@ net.bufferSize = 300000;
 let peers = [];
 
 const server = net.createServer((socket) => {
-  console.log("client connectedm - IP:" + socket.remoteAddress);
+  // console.log("client connectedm - IP:" + socket.remoteAddress);
 
   let user;
 
@@ -38,6 +39,7 @@ const server = net.createServer((socket) => {
         peer.sendMessage(user, data);
       });
     }
+    protocol = null;
   });
 
   socket.on("end", () => {
@@ -47,6 +49,8 @@ const server = net.createServer((socket) => {
       }
       return peer.id == user.id;
     })
+
+    user = null;
 
     console.log("client disconnected");
   });
