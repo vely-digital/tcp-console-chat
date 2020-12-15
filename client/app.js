@@ -99,7 +99,7 @@ function asyncQuestionProcess(question) {
 
 async function main() {
     try {
-        let protoc = new Protocol();
+        let protoc = Protocol();
         let promiseSocket = new PromiseSocket(client);;
         const ipPort = await asyncQuestionProcess("Please enter ip:port ");
         const splitedIpPort = ipPort.split(/:|\\n/g)
@@ -125,7 +125,7 @@ async function main() {
         input.key('enter', async function () {
             var message = this.getValue();
             try {
-                let protocol = new Protocol();
+                let protocol = Protocol();
                 let type = (lastRecievedType == messageType.USERNAME) ? messageType.USERNAME : messageType.MESSAGE;
                 if (message == "\n") {
                     addMessage(errorMessage("Input can't be empty"));
@@ -144,13 +144,15 @@ async function main() {
         screen.render();
 
         client.on('data', async (data) => {
-            let protocol = new Protocol();
-            protocol.decode(data);
+            let protocol = Protocol();
+
+            const decoded = protocol.decode(data);
+            // console.log("data", protocol)
             lastRecievedType = protocol.type;
             let message = "";
 
             if (process.env.NODE_ENV == "DEV") {
-                switch (protocol.type) {
+                switch (decoded.type) {
                     case messageType.INFO:
                         message = "INFO: ";
                         break;
@@ -167,7 +169,7 @@ async function main() {
             }
 
             // console.log("message", protocol);
-            message += protocol.message
+            message += decoded.message
 
             messageList.addItem(message);
             messageList.scrollTo(100);
